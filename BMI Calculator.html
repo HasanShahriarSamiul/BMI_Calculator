@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strava-Style BMI Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      border-top: 6px solid #FC4C02;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #FC4C02;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      font-size: 18px;
+      background-color: #FC4C02;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #e14a01;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .category {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .underweight { color: #0077b6; }
+    .normal { color: #43aa8b; }
+    .overweight { color: #f9c74f; }
+    .obese { color: #d00000; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>BMI Calculator</h1>
+
+    <label for="height">Height (in cm):</label>
+    <input type="number" id="height" placeholder="e.g., 170" />
+
+    <label for="weight">Weight (in kg):</label>
+    <input type="number" id="weight" placeholder="e.g., 65" />
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="result" id="result" style="display: none;">
+      Your BMI is: <span id="bmiValue"></span><br>
+      <span class="category" id="bmiCategory"></span>
+    </div>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      const heightCm = parseFloat(document.getElementById("height").value);
+      const weight = parseFloat(document.getElementById("weight").value);
+      const resultDiv = document.getElementById("result");
+      const bmiValue = document.getElementById("bmiValue");
+      const bmiCategory = document.getElementById("bmiCategory");
+
+      if (!heightCm || !weight || heightCm <= 0 || weight <= 0) {
+        alert("Please enter valid height and weight values.");
+        return;
+      }
+
+      const heightM = heightCm / 100;
+      const bmi = weight / (heightM * heightM);
+      const bmiRounded = bmi.toFixed(1);
+
+      let category = "";
+      let className = "";
+
+      if (bmi < 18.5) {
+        category = "Underweight";
+        className = "underweight";
+      } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = "Normal weight";
+        className = "normal";
+      } else if (bmi >= 25 && bmi < 29.9) {
+        category = "Overweight";
+        className = "overweight";
+      } else {
+        category = "Obese";
+        className = "obese";
+      }
+
+      bmiValue.textContent = bmiRounded;
+      bmiCategory.textContent = category;
+      bmiCategory.className = `category ${className}`;
+      resultDiv.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
+
