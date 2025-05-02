@@ -2,7 +2,7 @@
 
 This is a **BMI (Body Mass Index) Calculator** web application built using **HTML**, **CSS**, and **JavaScript**. The app calculates the BMI based on the user's input (weight and height) and provides the BMI category (Underweight, Normal weight, Overweight, Obese) along with the result.
 
-The calculator is styled to resemble the **Strava** color theme, making it visually appealing and user-friendly.
+The calculator uses **Strava's color theme**, making it visually appealing and user-friendly.
 
 ## Features
 - Input your height (in cm) and weight (in kg).
@@ -14,7 +14,7 @@ The calculator is styled to resemble the **Strava** color theme, making it visua
   - Normal weight (18.5 ≤ BMI < 24.9)
   - Overweight (25 ≤ BMI < 29.9)
   - Obese (BMI ≥ 30)
-- Uses Strava's distinctive color theme (orange, white, and clean aesthetics).
+- Styled to resemble **Strava's** color theme (orange, white, and clean aesthetics).
 
 ## Technologies Used
 - **HTML**: For the basic structure of the web page.
@@ -26,10 +26,17 @@ The calculator is styled to resemble the **Strava** color theme, making it visua
 ### 1. Download the Project
    - Clone or download the project to your local machine.
 
+## DEMO👇
+![Preview](https://github.com/user-attachments/assets/2114f91a-ab1e-445e-b208-26789473b270)
+
    To clone it using Git:
    ```bash
    git clone https://github.com/your-username/bmi-calculator.git
 
-## DEMO👇
-![Preview](https://github.com/user-attachments/assets/2114f91a-ab1e-445e-b208-26789473b270)
+
+
+
+
+
+
 
